@@ -1,0 +1,12 @@
+/.venv
+**/.ipynb_checkpoints
+**/data
+
+*.parquet
+*.csv
+
+**.terraform
+*.tfstate
+*.tfstate.*
+**.terraform.lock.*
+**key.json
