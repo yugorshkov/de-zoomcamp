@@ -13,16 +13,21 @@ def main(params):
     db = params.db
     table_name = params.table_name
     url = params.url
-    file_name = 'output.parquet'
+    file_name = url.rsplit('/', maxsplit=1)[-1]
 
-    os.system(f"wget {url} -O {file_name}")
+    os.system(f"wget {url}")
 
-    df = pq.read_table(file_name)
-    df = df.to_pandas()
+    if file_name.endswith('.parquet'):
+        df = pq.read_table(file_name)
+        df = df.to_pandas()
+    elif file_name.endswith('.csv'):
+        df = pd.read_csv(file_name)
+    else:
+        print('Неверный формат файла')
 
     engine = create_engine(f'postgresql://{user}:{password}@{host}:{port}/{db}')
 
-    df.head(0).to_sql(name=table_name, con=engine, if_exists='replace')
+    df.head(0).to_sql(name=table_name, con=engine, if_exists='replace', index=False)
     df.to_sql(name=table_name, con=engine, if_exists='append', index=False)
 
 
