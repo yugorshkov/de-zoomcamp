@@ -10,3 +10,7 @@
 *.tfstate.*
 **.terraform.lock.*
 **key.json
+
+week_1_basics_n_setup/1_terraform_yc/cloud-terraform/cloud-init.yaml
+week_1_basics_n_setup/1_terraform_yc/cloud-terraform/variables.tf
+week_1_basics_n_setup/1_terraform_yc/cloud-terraform/vm-config

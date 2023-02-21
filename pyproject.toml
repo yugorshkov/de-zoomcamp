@@ -13,6 +13,9 @@ pandas = "^1.5.3"
 pyarrow = "^10.0.1"
 sqlalchemy = "^1.4.46"
 psycopg2-binary = "^2.9.5"
+prefect = "^2.8.0"
+prefect-sqlalchemy = "^0.2.3"
+prefect-aws = "^0.2.4"
 
 
 [build-system]
